@@ -1,1 +1,1 @@
-# SoftXReact
+# SoftXReact is a SoftX Casino made using React framework. This project's goal is to show how you can't beat casinos.

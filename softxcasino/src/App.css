@@ -1,0 +1,24 @@
+.nav{
+display: flex;
+justify-content: space-between;
+align-items: center; 
+justify-content: space-between;
+background-color: lavender;
+}
+.login {
+  margin: 5px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #B2AC88;
+  cursor: pointer;
+}
+.links{
+  text-decoration: none;
+}
+.register{
+  border-radius: 5px;
+  border: 0;
+  background-color: #B2AC88;
+  text-decoration: none;
+  cursor: pointer;
+}
