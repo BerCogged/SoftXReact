@@ -4,6 +4,7 @@ justify-content: space-between;
 align-items: center; 
 justify-content: space-between;
 background-color: lavender;
+height: 13%;
 }
 .login {
   margin: 5px;
@@ -21,4 +22,17 @@ background-color: lavender;
   background-color: #B2AC88;
   text-decoration: none;
   cursor: pointer;
+}
+.menu {
+  bottom: 0;
+  height: 87%;
+  position: absolute;
+  display: grid;
+  text-align: center;
+  width: 15%;
+  background-color: lightgray;
+}
+.link{
+  text-decoration: none;
+  margin-top: 5%;
 }

@@ -10,7 +10,7 @@ const handleHistory = ()=>{
     return (  
         <div className="nav">
             <div className="logo">
-                <Logo />
+               <Link to="/"><Logo /></Link> 
             </div>
             <div className="links">
                 <button className="register" onClick={handleHistory}>Register</button>
