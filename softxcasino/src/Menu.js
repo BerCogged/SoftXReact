@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 const Menu = () => {
     return ( 
         <div className="menu">
-            <a href="/" className="link">Roulette</a><br></br>
-            <a href="/" className="link">Poker</a><br></br>
-            <a href="/" className="link">Blackjack</a><br></br>
-            <a href="/" className="link">Roulette</a><br></br>
-            <a href="/" className="link">Slot</a><br></br>
-            <a href="/" className="link">Coinflip</a><br></br>
-            <a href="/" className="link">Plink</a><br></br>
+            <Link to="/roulette" className="link">Roulette</Link><br></br>
+            <Link to="/poker" className="link">Poker</Link><br></br>
+            <Link to="/blackjack" className="link">Blackjack</Link><br></br>
+            <Link to="/slot" className="link">Slot</Link><br></br>
+            <Link to="/coinflip" className="link">Coinflip</Link><br></br>
+            <Link to="/plinko" className="link">Plinko</Link><br></br>
         </div>
      );
 }
