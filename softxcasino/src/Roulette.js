@@ -1,5 +1,4 @@
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { useRef } from 'react';
 import {
     Chart as ChartJS,
     ArcElement,
@@ -14,6 +13,7 @@ ChartJS.register(
     ChartDataLabels
 );
 const Roulette = () => {
+    /*
 const pieRef = useRef({Pie});
 const spinBtn = document.getElementById("spin-btn");
 const finalValue= document.getElementById("final-value");
@@ -56,7 +56,7 @@ const rotatitonValues = [
     { minDegree: 339.6, maxDegree: 349.2, value: 6},
     { minDegree: 349.3, maxDegree: 360, value:34}
 ];
-
+*/
     const pieColors = ["green","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black"];
     const nums = [16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16];
     const data = {

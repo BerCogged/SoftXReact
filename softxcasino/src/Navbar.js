@@ -4,17 +4,20 @@ import {useHistory} from 'react-router-dom';
 
 const Navbar = () => {
 const history = useHistory();
-const handleHistory = ()=>{
-    history.push('/home')
+const handleLog = ()=>{
+    history.push('/login');
+}
+const handleReg = ()=>{
+    history.push("/register");
 }
     return (  
         <div className="nav">
             <div className="logo">
-               <Link to="/"><Logo /></Link> 
+               <Link to="/home"><Logo /></Link> 
             </div>
             <div className="links">
-                <button className="register" onClick={handleHistory}>Register</button>
-                <button className="login" onClick={handleHistory}>Login</button>
+                <button className="register" onClick={handleReg}>Register</button>
+                <button className="login" onClick={handleLog}>Login</button>
             </div>
         </div>
     );
