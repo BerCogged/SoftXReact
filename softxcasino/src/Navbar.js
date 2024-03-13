@@ -13,7 +13,7 @@ const handleReg = ()=>{
     return (  
         <div className="nav">
             <div className="logo">
-               <Link to="/home"><Logo /></Link> 
+               <Link to="/"><Logo /></Link> 
             </div>
             <div className="links">
                 <button className="register" onClick={handleReg}>Register</button>

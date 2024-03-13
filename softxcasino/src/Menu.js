@@ -7,7 +7,6 @@ const Menu = () => {
 
     return ( 
         <div className="menu">
-            <button className="dugme"></button>
             <Link to="/roulette" className="link">Roulette</Link><br></br>
             <Link to="/poker" className="link">Poker</Link><br></br>
             <Link to="/blackjack" className="link">Blackjack</Link><br></br>

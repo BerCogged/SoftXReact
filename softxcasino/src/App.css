@@ -23,6 +23,7 @@ background-color: lavender;
   cursor: pointer;
 }
 .menu {
+  z-index: 1;
   left: 0;
   height:90vh;
   position: absolute;
@@ -128,10 +129,16 @@ input[type=text], input[type=password] {
 }
 .home {
   text-align: center;
+  z-index: 0;
 }
 .rulet-slika {
   width: 750px; 
   height: auto; 
+}
+.slide {
+  width: 100px; 
+  height: auto;
+  margin-top: 20px;
 }
 .dugme{
   margin-left: 257px;

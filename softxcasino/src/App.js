@@ -14,7 +14,7 @@ function App() {
         <Navbar />
         <Menu />
         <Switch>
-          <Route exact path="/home">
+          <Route exact path="/">
             <Home />
           </Route>
           <Route path="/roulette">
