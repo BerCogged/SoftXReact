@@ -6,11 +6,12 @@ import Home from './Home';
 import Roulette from './Roulette';
 import Login from "./Login";
 import Register from './Register';
+import Poker from './Poker';
 function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="App" >
         <Navbar />
         <Menu />
         <Switch>
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/roulette">
             <Roulette/>
+          </Route>
+          <Route path='/poker'>
+            <Poker/>
           </Route>
           <Route path="/login">
             <Login/>

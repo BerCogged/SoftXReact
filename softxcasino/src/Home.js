@@ -3,6 +3,7 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import Slotimg from "./Slotimg";
 import {Link} from "react-router-dom";
+import Pokerimg from "./Pokerimg";
 const Home = () => {
     const properties = {
         prevArrow: <p></p>,
@@ -17,6 +18,9 @@ const Home = () => {
             </div>
             <div className="each-slide-effect">
                 <Link to="/slot"><Slotimg/></Link>
+            </div>
+            <div className="each-slide-effect">
+                <Link to="/poker"><Pokerimg/></Link>
             </div>
             </Slide>
             <h2>Play NOW!!!</h2>  

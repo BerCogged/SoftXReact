@@ -1,4 +1,6 @@
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import Arrow from './Arrow';
+import { useState } from 'react';
 import {
     Chart as ChartJS,
     ArcElement,
@@ -13,10 +15,6 @@ ChartJS.register(
     ChartDataLabels
 );
 const Roulette = () => {
-    /*
-const pieRef = useRef({Pie});
-const spinBtn = document.getElementById("spin-btn");
-const finalValue= document.getElementById("final-value");
 const rotatitonValues = [
     { minDegree: 0, maxDegree: 9.7, value: 17 },
     { minDegree: 9.71, maxDegree: 19.4, value: 25 },
@@ -56,10 +54,10 @@ const rotatitonValues = [
     { minDegree: 339.6, maxDegree: 349.2, value: 6},
     { minDegree: 349.3, maxDegree: 360, value:34}
 ];
-*/
+
     const pieColors = ["green","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black"];
     const nums = [16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16];
-    const data = {
+    const data ={
         plugins:[ChartDataLabels],
         labels:[0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,32,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26],
         datasets:[{
@@ -67,10 +65,11 @@ const rotatitonValues = [
             data:nums,
             }
         ]
-    }
-    const options = {
+    };
+    const [options,setOptions] =useState ({
         responsive: true,
         animation: { duration: 1 },
+        rotation:0,
         plugins: {
             tooltip: false,
             legend: {
@@ -84,6 +83,71 @@ const rotatitonValues = [
                 }
             },
         },
+    });
+    const valueGenerator = (angleValue) =>{
+        for (let i of rotatitonValues){
+            if (angleValue>=i.minDegree && angleValue<=i.maxDegree){
+                console.log('<p>Number is: ' + i.value + '</p>');
+                setText("Number is " + i.value+"!!!!!");
+                break;
+            }
+        }
+    };
+
+    let count =1;
+    let resultValue= 101;
+    const [text,setText] = useState("Click on the button SPIN to start");
+    const [disabled, setDisabled] = useState(false);
+
+    const handleClick = () => {
+        let randomDegree = Math.floor(Math.random() * ((355 - 0 + 1) + 0));
+        setText("GOOD LUCK!!");
+        let rotationInterval = window.setInterval(() => {
+            setOptions(prevState => {
+                console.log("prevState.rotation : "+ prevState.rotation )
+                const newRotation = prevState.rotation + resultValue;
+                setDisabled(true);
+                console.log("random degree: "+ randomDegree);
+                console.log("Rotation: "+newRotation);
+                console.log("count:"+ count);
+                console.log("result value: " + resultValue);
+                if (newRotation >= 360 && count >0) {
+                    count += 1;
+                    resultValue -= 1;
+                    return {
+                        rotation: 0
+                    };
+                } else if (count > 15 && newRotation===randomDegree) {
+                    
+                    valueGenerator(newRotation);
+                    clearInterval(rotationInterval);
+                    setDisabled(false);
+                    count = 0;
+                    resultValue = 101;
+                    console.log("NIGGGERS");
+                    return {rotation:newRotation};
+
+                }
+                if (resultValue===0){
+                    resultValue=101;
+                }
+                if (count ===0 && resultValue===101){
+                        clearInterval(rotationInterval);
+                        valueGenerator(newRotation)
+                        setDisabled(false);
+                        return {
+                        rotation: newRotation}
+                        }
+
+                if (count >120){
+                    randomDegree = newRotation
+                }
+                return {
+                    rotation: newRotation
+                };
+                
+            });
+        }, 10);
     };
 
     return (
@@ -94,10 +158,11 @@ const rotatitonValues = [
                         <Pie id="wheel"
                             data = {data}
                             options={options}></Pie>
-                        <button id="spin-btn">SPIN</button> 
+                        <button id="spin-btn" onClick={handleClick} disabled={disabled}>SPIN</button>
+                        <p className='arrow'><Arrow/></p>
                     </div>
                     <div id="final-value">
-                        <p>Click on the SPIN button to START</p>
+                        <p>{text}</p>
                     </div>
                 </div>
             </div>

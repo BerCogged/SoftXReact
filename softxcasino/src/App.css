@@ -4,6 +4,7 @@ justify-content: space-between;
 align-items: center; 
 justify-content: space-between;
 background-color: lavender;
+height: 10vh;
 }
 .login {
   margin: 5px;
@@ -65,6 +66,12 @@ background-color: lavender;
   display: flex;
   justify-content: flex-start;
   float: right;
+}
+.arrow{
+  position: absolute;
+  width: 4em;
+  top:32%;
+  right: -7%;
 }
 #wheel{
   max-height: inherit;
@@ -145,4 +152,88 @@ input[type=text], input[type=password] {
   margin-top: 10px;
   width: 1px;
   height: 1px;
+}
+.poker{
+  display: inline-flexbox;
+  text-align: center;
+}
+.poker-tabla{
+  margin-top: 10%;
+}
+.card {
+  position: absolute;
+  left: 50%;
+  top: 51%;
+  transform: translate(-50%, -50%);
+  width: 7%;
+  height: 7%;
+  cursor: pointer;
+}
+.card2{
+  position: absolute;
+  left: 47%;
+  top: 51%;
+  transform: translate(-50%, -50%);
+  width: 7%;
+  height: 7%;
+  cursor: pointer;
+}
+.card3{
+  position: absolute;
+  left: 44%;
+  top: 51%;
+  transform: translate(-50%, -50%);
+  width: 7%;
+  height: 7%;
+  cursor: pointer;
+}
+.card4{
+  position: absolute;
+  left: 53%;
+  top: 51%;
+  transform: translate(-50%, -50%);
+  width: 7%;
+  height: 7%;
+  cursor: pointer;
+}
+.card5{
+  position: absolute;
+  left: 56%;
+  top: 51%;
+  transform: translate(-50%, -50%);
+  width: 7%;
+  height: 7%;
+  cursor: pointer;
+}
+.card-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.card-front, .card-back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility:hidden;
+  backface-visibility: hidden;
+}
+.card-img{
+  height: 100%;
+}
+.card-back{
+  transform: rotateY(180deg);
+}
+.ruka{
+margin-top: 15px;
+max-height:200px;
+}
+.ruka2{
+margin-top: 15px;
+max-height:200px; 
+}
+.start{
+  border-radius: 8px;
+  background-color: #c66e16;
 }
