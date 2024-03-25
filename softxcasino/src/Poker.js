@@ -1,4 +1,5 @@
 import Table from "./Table";
+import { FourOfKind, HighCard, RoyalFlush, StraighFlush } from "./Combinations";
 import card1 from "./imgs/cards/PNG-cards-1.3/2_of_clubs.png";
 import card2 from "./imgs/cards/PNG-cards-1.3/2_of_diamonds.png";
 import card3 from "./imgs/cards/PNG-cards-1.3/2_of_hearts.png";
@@ -110,7 +111,7 @@ const Poker = () => {
         { id: 51, number: 'Ace', sign: "hearts", path: card51 },
         { id: 52, number: 'Ace', sign: "spades", path: card52 }
     ];
-    
+
 
     const [transf, setTransf] = useState("rotateY(180deg)");
     const [text,setText]=useState("Show Cards");
@@ -149,14 +150,97 @@ const Poker = () => {
         setY3(cards[x3].path);
         setY4(cards[x4].path);
         setY5(cards[x5].path);
-    }
-    const [z,setZ] = useState(backcard);
-    const start = ()=>{
         
+    }
+
+    const [hand1,setHand1] = useState(backcard);
+    const [hand2,setHand2] = useState(backcard);
+    const [hand3,setHand3] = useState(backcard);
+    const [hand4,setHand4] = useState(backcard);
+    const start = ()=>{
+        let h1 = Math.floor(Math.random() * 52);
+        let h2 = Math.floor(Math.random() * 52);
+        let h3 = Math.floor(Math.random() * 52);
+        let h4 = Math.floor(Math.random() * 52);
+        let x1 = Math.floor(Math.random() * 52);
+        let x2 = Math.floor(Math.random() * 52);
+        let x3 = Math.floor(Math.random() * 52);
+        let x4 = Math.floor(Math.random() * 52);
+        let x5 = Math.floor(Math.random() * 52);   
+        while (h1===h2|| h1===h3 || h1===h4 ||  h1===x1 ||  h1===x2 ||  h1===x3 || h1===x4 ||  h1===x5 || h2===h3 ||  h2===h4 ||  h2===x1 || h2===x2 ||  h2===x3 || h2===x4 || h2===x5 ||  h3===h4 || h3===x1 ||  h3===x2 ||  h3===x3 || h3===x4 ||  h3===x5 ||  h4===x1 || h4===x2 ||  h4===x3 || h4===x4||  h4===x5 ||x1===x2 || x1===x3 || x1===x4 || x1===x5 || x2===x3 || x2===x4 || x2===x5 || x3===x4 || x3===x5 || x4===x5){
+            h1 = Math.floor(Math.random() * 52);
+            h2 = Math.floor(Math.random() * 52);
+            h3 = Math.floor(Math.random() * 52);
+            h4 = Math.floor(Math.random() * 52);
+            x1 = Math.floor(Math.random() * 52);
+            x2 = Math.floor(Math.random() * 52);
+            x3 = Math.floor(Math.random() * 52);
+            x4 = Math.floor(Math.random() * 52);
+            x5 = Math.floor(Math.random() * 52);
+         }
+         h1=51;
+         h2=50;
+         x1=49;
+         x2=48;
+         setHand1(cards[h1].path);
+         setHand2(cards[h2].path);
+         setHand3(cards[h3].path);
+         setHand4(cards[h4].path);
+         setY(cards[x1].path);
+         setY2(cards[x2].path);
+         setY3(cards[x3].path);
+         setY4(cards[x4].path);
+         setY5(cards[x5].path);
+         const BotCards = [h1,h2];
+         const PlayerCards = [h3,h4];
+         const tableCards= [x1,x2,x3,x4,x5];
+         Combinations(BotCards,PlayerCards,tableCards);
+    }
+    const Combinations = (BotCards, PlayerCards, tableCards)=>{
+        //const botcard1 = [cards[BotCards[0]].number,cards[BotCards[0]].sign];
+        const botcard1 = {number: cards[BotCards[0]].number, sign: cards[BotCards[0]].sign};
+        const botcard2 = {number: cards[BotCards[1]].number, sign:cards[BotCards[1]].sign};
+        const playercard1= {number: cards[PlayerCards[0]].number, sign: cards[PlayerCards[0]].sign};
+        const playercard2= {number: cards[PlayerCards[1]].number,sign:cards[PlayerCards[1]].sign};
+        const tablecard1= {number:cards[tableCards[0]].number,sign :cards[tableCards[0]].sign};
+        const tablecard2= {number: cards[tableCards[1]].number,sign: cards[tableCards[1]].sign};
+        const tablecard3= {number: cards[tableCards[2]].number,sign: cards[tableCards[2]].sign};
+        const tablecard4= {number: cards[tableCards[3]].number,sign: cards[tableCards[3]].sign};
+        const tablecard5= {number: cards[tableCards[4]].number,sign: cards[tableCards[4]].sign};
+        if (RoyalFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            console.log("Bot have wan bcs fo royal flush");
+       }
+       else if (RoyalFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            console.log("Player have won because of royal flush");
+       }
+       else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5) && StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+                console.log("Bot have won because of stronger straight Flash");
+            }
+            else 
+                console.log("Player have won becuase of stronger straight Flash");
+       }
+       else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+                console.log("Bot have won because of straight Flash");
+       }
+       else if (StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+                console.log("Player have won because of straight Flash");
+       }
+       else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            console.log("Bot have won because of strogner four");
+       }
+       else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            console.log("Player have won because of strogner four");
+        }
+
     }
     useEffect(radnomCards,[]);
     return ( 
         <div className="poker">
+                <div className="nova-ruka">
+                <img src={hand1} alt="slika" className="ruka3"/>
+                <img src={hand2} alt="slika" className="ruka4"/>
+                </div>
                 <div className="card">
                         <div className="card-inner" style={{transform : transf}} >
                             <div className="card-front">
@@ -214,8 +298,8 @@ const Poker = () => {
                 <button className="pokazi" onClick={radnomCards}>Random cards</button>
                 <button className="start" onClick={start}>Start Game</button>
                 <div>
-                    <img src={z} alt="slika" className="ruka"/>
-                    <img src={z} alt="slika" className="ruka2"/>
+                    <img src={hand3} alt="slika" className="ruka"/>
+                    <img src={hand4} alt="slika" className="ruka2"/>
                 </div>
         </div>
      );

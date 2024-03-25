@@ -237,3 +237,16 @@ max-height:200px;
   border-radius: 8px;
   background-color: #c66e16;
 }
+.nova-ruka {
+  position: relative;
+}
+.nova-ruka img {
+  position: absolute;
+  max-height: 200px;
+}
+.ruka3{
+  transform: translate(-5px, -180px);
+}
+.ruka4{
+  transform: translate(-150px, -180px);
+}
