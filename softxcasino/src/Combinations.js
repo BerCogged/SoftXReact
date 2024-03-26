@@ -133,14 +133,50 @@ export const FourOfKind = (card1,card2,tablecard1,tablecard2,tablecard3,tablecar
     numbers=numbers.map(card=>Numbers[card]||card);
     numbers.sort((a, b) => a - b);
     let br=0;
-    for (let i=0;i<numbers.length;i++){
-        if (br===3){
-                return numbers[i-1];
+    let brC1=0;
+    let brC2=0;
+    let brC3=0;
+    let brC4=0;
+    let brC5=0;
+    let brC6=0;
+    let brC7=0;
+    let brnms = [brC1,brC2,brC3,brC4,brC5,brC6,brC7]
+    let num1=numbers[0];
+    for (let j=0;j<numbers.length;j++){
+        for (let i=0;i<numbers.length;i++){
+            if (numbers[j]===numbers[i]){
+            brnms[j]=brnms[j]+1;
+            }
         }
-        else {
-        if (numbers[i]===numbers[i+1])
-            br=br+1;
-         }
     }
-    return 0;
+    if (brC1===4 || brC2===4 || brC3===4 || brC4===4 || brC5===4 || brC6===4 || brC7===4){
+        console.log(brC1,brC2,brC3,brC4,brC5,brC6,brC7);
+        return true;
+    }
+    else 
+    return false;
+}
+export const FullHouse =(card1,card2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)=>{
+    const Numbers = {"Ace": 11, "Jack": 12, "Queen":13, "King":14};
+    let numbers = [card1.number,card2.number,tablecard1.number,tablecard2.number,tablecard3.number,tablecard4.number,tablecard5.number];
+    numbers=numbers.map(card=>Numbers[card]||card);
+    numbers.sort((a, b) => a - b);
+    let brC1=0;
+    let brC2=0;
+    let brC3=0;
+    let brC4=0;
+    let brC5=0;
+    let brC6=0;
+    let brC7=0;
+    let brnms = [brC1,brC2,brC3,brC4,brC5,brC6,brC7]
+    let num1=numbers[0];
+    for (let j=0;j<numbers.length;j++){
+        for (let i=0;i<numbers.length;i++){
+            if (numbers[j]===numbers[i]){
+            brnms[j]=brnms[j]+1;
+            }
+      
+        }
+    }
+    console.log(brC1,brC2);
 }

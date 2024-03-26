@@ -1,5 +1,5 @@
 import Table from "./Table";
-import { FourOfKind, HighCard, RoyalFlush, StraighFlush } from "./Combinations";
+import { FourOfKind, FullHouse, HighCard, RoyalFlush, StraighFlush } from "./Combinations";
 import card1 from "./imgs/cards/PNG-cards-1.3/2_of_clubs.png";
 import card2 from "./imgs/cards/PNG-cards-1.3/2_of_diamonds.png";
 import card3 from "./imgs/cards/PNG-cards-1.3/2_of_hearts.png";
@@ -178,10 +178,11 @@ const Poker = () => {
             x4 = Math.floor(Math.random() * 52);
             x5 = Math.floor(Math.random() * 52);
          }
-         h1=51;
-         h2=50;
-         x1=49;
-         x2=48;
+         h3=51;
+         h4=47;
+         x1=50;
+         x2=49;
+         x3=46;
          setHand1(cards[h1].path);
          setHand2(cards[h2].path);
          setHand3(cards[h3].path);
@@ -231,6 +232,12 @@ const Poker = () => {
        }
        else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             console.log("Player have won because of strogner four");
+        }
+        else if (FullHouse(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>FullHouse(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            console.log("Bot have won because Full House");
+        }
+        else if (FullHouse(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<FullHouse(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            console.log("Player have won because Full House");
         }
 
     }
@@ -294,13 +301,16 @@ const Poker = () => {
                 <div className="poker-tabla">
                     <Table/>
                 </div>
-                <button className="pokazi" onClick={showcards}>{text}</button>
-                <button className="pokazi" onClick={radnomCards}>Random cards</button>
-                <button className="start" onClick={start}>Start Game</button>
-                <div>
-                    <img src={hand3} alt="slika" className="ruka"/>
-                    <img src={hand4} alt="slika" className="ruka2"/>
+                <div className="dole">
+                    <button className="pokazi" onClick={showcards}>{text}</button>
+                    <button className="pokazi" onClick={radnomCards}>Random cards</button>
+                    <button className="start" onClick={start}>Start Game</button>
+                    <div>
+                        <img src={hand3} alt="slika" className="ruka"/>
+                        <img src={hand4} alt="slika" className="ruka2"/>
+                    </div>
                 </div>
+ 
         </div>
      );
 }

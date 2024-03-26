@@ -161,45 +161,50 @@ input[type=text], input[type=password] {
   margin-top: 10%;
 }
 .card {
+  z-index: 1;
   position: absolute;
   left: 50%;
-  top: 51%;
+  top: 53%;
   transform: translate(-50%, -50%);
   width: 7%;
   height: 7%;
   cursor: pointer;
 }
 .card2{
+  z-index: 1;
   position: absolute;
   left: 47%;
-  top: 51%;
+  top: 53%;
   transform: translate(-50%, -50%);
   width: 7%;
   height: 7%;
   cursor: pointer;
 }
 .card3{
+  z-index: 1;
   position: absolute;
   left: 44%;
-  top: 51%;
+  top: 53%;
   transform: translate(-50%, -50%);
   width: 7%;
   height: 7%;
   cursor: pointer;
 }
 .card4{
+  z-index: 1;
   position: absolute;
   left: 53%;
-  top: 51%;
+  top: 53%;
   transform: translate(-50%, -50%);
   width: 7%;
   height: 7%;
   cursor: pointer;
 }
 .card5{
+  z-index: 1;
   position: absolute;
   left: 56%;
-  top: 51%;
+  top: 53%;
   transform: translate(-50%, -50%);
   width: 7%;
   height: 7%;
@@ -227,11 +232,11 @@ input[type=text], input[type=password] {
 }
 .ruka{
 margin-top: 15px;
-max-height:200px;
+max-height:100px;
 }
 .ruka2{
 margin-top: 15px;
-max-height:200px; 
+max-height:100px; 
 }
 .start{
   border-radius: 8px;
@@ -242,11 +247,11 @@ max-height:200px;
 }
 .nova-ruka img {
   position: absolute;
-  max-height: 200px;
+  max-height: 100px;
 }
 .ruka3{
-  transform: translate(-5px, -180px);
+  transform: translate(10px, -130px);
 }
 .ruka4{
-  transform: translate(-150px, -180px);
+  transform: translate(-70px, -130px);
 }
