@@ -1,5 +1,5 @@
 import Table from "./Table";
-import { FourOfKind, FullHouse, HighCard, RoyalFlush, StraighFlush } from "./Combinations";
+import { Flash, FourOfKind, FullHouse, HighCard, Pair, RoyalFlush, StraighFlush, Straight, ThreeOfAKind, TwoPair } from "./Combinations";
 import card1 from "./imgs/cards/PNG-cards-1.3/2_of_clubs.png";
 import card2 from "./imgs/cards/PNG-cards-1.3/2_of_diamonds.png";
 import card3 from "./imgs/cards/PNG-cards-1.3/2_of_hearts.png";
@@ -52,8 +52,9 @@ import card49 from "./imgs/cards/PNG-cards-1.3/ace_of_clubs.png";
 import card50 from "./imgs/cards/PNG-cards-1.3/ace_of_diamonds.png";
 import card51 from "./imgs/cards/PNG-cards-1.3/ace_of_hearts.png";
 import card52 from "./imgs/cards/PNG-cards-1.3/ace_of_spades.png";
-import backcard from "./imgs/cards/card-back-Blue.png"
-import { useEffect, useState } from "react";
+import backcard from "./imgs/cards/card-back-Blue.png";
+import homer2 from "./imgs/homer6.png";
+import { useState } from "react";
 const Poker = () => {
 
 
@@ -111,7 +112,6 @@ const Poker = () => {
         { id: 51, number: 'Ace', sign: "hearts", path: card51 },
         { id: 52, number: 'Ace', sign: "spades", path: card52 }
     ];
-
 
     const [transf, setTransf] = useState("rotateY(180deg)");
     const [text,setText]=useState("Show Cards");
@@ -178,11 +178,6 @@ const Poker = () => {
             x4 = Math.floor(Math.random() * 52);
             x5 = Math.floor(Math.random() * 52);
          }
-         h3=51;
-         h4=47;
-         x1=50;
-         x2=49;
-         x3=46;
          setHand1(cards[h1].path);
          setHand2(cards[h2].path);
          setHand3(cards[h3].path);
@@ -209,41 +204,130 @@ const Poker = () => {
         const tablecard4= {number: cards[tableCards[3]].number,sign: cards[tableCards[3]].sign};
         const tablecard5= {number: cards[tableCards[4]].number,sign: cards[tableCards[4]].sign};
         if (RoyalFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-            console.log("Bot have wan bcs fo royal flush");
+            setHomerTx("Bot have wan bcs fo royal flush");
        }
        else if (RoyalFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-            console.log("Player have won because of royal flush");
+        setHomerTx("Player have won because of royal flush");
        }
-       else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5) && StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+       else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
             if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-                console.log("Bot have won because of stronger straight Flash");
+            setHomerTx("Bot have won because of stronger straight Flash");
             }
             else 
-                console.log("Player have won becuase of stronger straight Flash");
+            setHomerTx("Player have won becuase of stronger straight Flash");
        }
-       else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-                console.log("Bot have won because of straight Flash");
+       else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Bot have won because of straight Flash");
        }
-       else if (StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-                console.log("Player have won because of straight Flash");
+       else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Player have won because of straight Flash");
        }
+       else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
+        if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+        setHomerTx("Bot have won because of a strogner four of a kind");
+        }
+        else 
+        setHomerTx("Player have won becuase of stronger four of a kind");
+        }
        else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-            console.log("Bot have won because of strogner four");
+        setHomerTx("Bot have won because of strogner four");
        }
        else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-            console.log("Player have won because of strogner four");
+        setHomerTx("Player have won because of strogner four");
         }
+        else if (FullHouse(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && FullHouse(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
+            if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Bot have won because of a strogner full house");
+            }
+            else 
+            setHomerTx("Player have won becuase of stronger full house");
+            }
         else if (FullHouse(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>FullHouse(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-            console.log("Bot have won because Full House");
+        setHomerTx("Bot have won because Full House");
         }
         else if (FullHouse(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<FullHouse(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-            console.log("Player have won because Full House");
+        setHomerTx("Player have won because Full House");
         }
-
+        else if (Flash(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && Flash(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
+            if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Bot have won because of a strogner flash");
+            }
+            else 
+            setHomerTx("Player have won becuase of stronger flash");
+            }
+        else if (Flash(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+        setHomerTx("Bot have won because of Flash")
+        }
+        else if (Flash(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+        setHomerTx("Player have won because of Flash")
+        }
+        else if (Straight(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && Straight(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
+            if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Bot have won because of a strogner straight");
+            }
+            else 
+            setHomerTx("Player have won becuase of stronger straight");
+            }
+        else if (Straight(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>Straight(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+        setHomerTx("Bot have won because of Straight")
+        }
+        else if (Straight(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<Straight(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+        setHomerTx("Player have won because of Straight")
+        }
+        else if (ThreeOfAKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && ThreeOfAKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
+            if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Bot have won because of a strogner ThreeOfAKind");
+            }
+            else 
+            setHomerTx("Player have won becuase of stronger ThreeOfAKind");
+            }
+        else if (ThreeOfAKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>ThreeOfAKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+        setHomerTx("Bot have won because of three same cards");
+        }
+        else if (ThreeOfAKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<ThreeOfAKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+        setHomerTx("Bot have won because of three same cards");
+        }
+        else if (TwoPair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && TwoPair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
+            if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Bot have won because of a strogner TwoPair");
+            }
+            else 
+            setHomerTx("Player have won becuase of stronger TwoPair");
+            }
+        else if (TwoPair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>TwoPair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+        setHomerTx("Bot have won because of Two pair");
+        }
+        else if (TwoPair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<TwoPair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Player have won becasue of Two pair")
+        }
+        else if (Pair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && Pair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
+            if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+                setHomerTx("Bot have won because of a strogner Pair");
+            }
+            else 
+            setHomerTx("Player have won becuase of stronger Pair");
+            }
+        else if (Pair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>Pair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Bot have won because of a pair");
+            }
+        else if (Pair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<Pair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Player have won becasue of a pair")
+            }
+        else if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+            setHomerTx("Bot have won because of a higher card");
+                }
+        else if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
+                setHomerTx("Player have won becasue of a higher card")
+                }
     }
-    useEffect(radnomCards,[]);
+    //useEffect(radnomCards,[]);
+    const [homerTx, setHomerTx]=useState("Press START to START making money")
     return ( 
         <div className="poker">
+                <div className="slika">
+                    <div className="homer-tekst">{homerTx}</div>
+                    <img src={homer2} alt="slika"/>
+                </div>
                 <div className="nova-ruka">
                 <img src={hand1} alt="slika" className="ruka3"/>
                 <img src={hand2} alt="slika" className="ruka4"/>

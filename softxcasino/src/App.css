@@ -230,13 +230,21 @@ input[type=text], input[type=password] {
 .card-back{
   transform: rotateY(180deg);
 }
+/*
+max-height i translate  promeni za manji ekran
+*/
 .ruka{
 margin-top: 15px;
-max-height:100px;
+max-height:200px;
 }
 .ruka2{
 margin-top: 15px;
-max-height:100px; 
+max-height:200px; 
+}
+@media (max-width: 768px) {
+  .ruka .ruka2{
+    max-height: 100px;
+  }
 }
 .start{
   border-radius: 8px;
@@ -247,11 +255,25 @@ max-height:100px;
 }
 .nova-ruka img {
   position: absolute;
-  max-height: 100px;
+  max-height: 200px;
 }
 .ruka3{
-  transform: translate(10px, -130px);
+  transform: translate(0px, -180px);
 }
 .ruka4{
-  transform: translate(-70px, -130px);
+  transform: translate(-145px, -180px);
+}
+.slika{
+  position: absolute;
+  bottom: -5px;
+  right: -2px;
+}
+.homer-tekst{
+  position: absolute;
+  z-index: 1000;
+  left:130px;
+  top: 220px;
+}
+body{
+  overflow: hidden;
 }
