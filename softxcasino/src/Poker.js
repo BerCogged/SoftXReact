@@ -321,7 +321,7 @@ const Poker = () => {
                 }
     }
     //useEffect(radnomCards,[]);
-    const [homerTx, setHomerTx]=useState("Press START to START making money")
+    const [homerTx, setHomerTx]=useState("      Press START to START making money")
     return ( 
         <div className="poker">
                 <div className="slika">

@@ -1,4 +1,4 @@
-import axios from "axios";
+//import axios from "axios";
 import { useState } from "react";
 
 const Login = () => {
@@ -8,7 +8,7 @@ const Login = () => {
 
     async function submit(e){
         e.preventDefault();
-
+        /*
         try{
             await axios.post("http://localhost:8000",{
                 email, passw
@@ -17,6 +17,7 @@ const Login = () => {
         catch(e){
             console.log(e);
         }
+        */
     }
 
 

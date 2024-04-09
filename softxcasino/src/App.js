@@ -7,6 +7,7 @@ import Roulette from './Roulette';
 import Login from "./Login";
 import Register from './Register';
 import Poker from './Poker';
+import BlackJack from './Blackjack';
 function App() {
 
   return (
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path='/register'>
             <Register/>
+          </Route>
+          <Route path='/blackjack'>
+            <BlackJack/>
           </Route>
         </Switch>
       </div>
