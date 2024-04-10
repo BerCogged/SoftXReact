@@ -25,34 +25,34 @@ const rotatitonValues = [
     { minDegree: 58.3, maxDegree: 67.9, value: 15 },
     { minDegree: 68, maxDegree: 77.6, value: 32 },
     { minDegree: 77.8, maxDegree: 87.3, value: 0 },
-    { minDegree: 87.4, maxDegree: 97, value: 26 },
-    { minDegree: 97.1, maxDegree: 106.7, value: 3 },
-    { minDegree: 106.8, maxDegree: 116.4, value: 35 },
-    { minDegree: 116.5, maxDegree: 126.1, value: 12 },
-    { minDegree: 126.2, maxDegree: 135.8, value: 28 },
-    { minDegree: 135.9, maxDegree: 145.5, value: 7 },
-    { minDegree: 145.6, maxDegree: 155.2, value: 29 },
-    { minDegree: 155.3, maxDegree: 169.4, value: 18},
-    { minDegree: 169.5, maxDegree: 174.6, value: 22 },
-    { minDegree: 174.7, maxDegree: 184.3, value: 9 },
-    { minDegree: 184.5, maxDegree: 194, value: 31 },
-    { minDegree: 194.1, maxDegree: 203.7, value: 14 },
-    { minDegree: 203.8, maxDegree: 213.4, value: 20 },
-    { minDegree: 213.5, maxDegree: 223.1, value: 1 },
-    { minDegree: 223.2, maxDegree: 232.8, value: 33 },
-    { minDegree: 232.9, maxDegree: 242.5, value: 16 },
-    { minDegree: 242.6, maxDegree: 252.2, value: 24 },
-    { minDegree: 252.3, maxDegree: 261.9, value: 5 },
-    { minDegree: 262, maxDegree: 271.6, value: 10 },
-    { minDegree: 271.7, maxDegree: 281.3, value: 32 },
-    { minDegree: 281.4, maxDegree: 291, value: 8 },
-    { minDegree: 291.1, maxDegree: 300.7, value: 30 },
-    { minDegree: 300.8, maxDegree: 310.4, value: 11},
-    { minDegree: 310.5, maxDegree: 320.1, value: 36 },
-    { minDegree: 320.2, maxDegree: 329.8, value: 13 },
-    { minDegree: 329.9, maxDegree: 339.5, value: 27 },
-    { minDegree: 339.6, maxDegree: 349.2, value: 6},
-    { minDegree: 349.3, maxDegree: 360, value:34}
+    { minDegree: 87.4, maxDegree: 97.1, value: 26 },
+    { minDegree: 97.2, maxDegree: 106.8, value: 3 },
+    { minDegree: 106.9, maxDegree: 116.5, value: 35 },
+    { minDegree: 116.6, maxDegree: 126.2, value: 12 },
+    { minDegree: 126.3, maxDegree: 135.9, value: 28 },
+    { minDegree: 136, maxDegree: 145.7, value: 7 },
+    { minDegree: 145.8, maxDegree: 155.4, value: 29 },
+    { minDegree: 155.5, maxDegree: 165.1, value: 18},
+    { minDegree: 165.2, maxDegree: 174.8, value: 22 },
+    { minDegree: 174.9, maxDegree: 184.5, value: 9 },
+    { minDegree: 184.6, maxDegree: 194.3, value: 31 },
+    { minDegree: 194.4, maxDegree: 204, value: 14 },
+    { minDegree: 204.2, maxDegree: 213.7, value: 20 },
+    { minDegree: 213.8, maxDegree: 223.4, value: 1 },
+    { minDegree: 223.5, maxDegree: 233.1, value: 33 },
+    { minDegree: 233.2, maxDegree: 242.9, value: 16 },
+    { minDegree: 243, maxDegree: 252.6, value: 24 },
+    { minDegree: 252.7, maxDegree: 262.3, value: 5 },
+    { minDegree: 262.4, maxDegree: 272, value: 10 },
+    { minDegree: 271.16, maxDegree: 281.7, value: 32 },
+    { minDegree: 281.8, maxDegree: 291, value: 8 },
+    { minDegree: 291.6, maxDegree: 301.2, value: 30 },
+    { minDegree: 301.3, maxDegree: 311.04, value: 11},
+    { minDegree: 311.1, maxDegree: 320.6, value: 36 },
+    { minDegree: 320.7, maxDegree: 330.4, value: 13 },
+    { minDegree: 330.5, maxDegree: 340.2, value: 27 },
+    { minDegree: 339.6, maxDegree: 349.8, value: 6},
+    { minDegree: 349.9, maxDegree: 360, value:34}
 ];
 
     const pieColors = ["green","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black","red","black"];
@@ -100,7 +100,7 @@ const rotatitonValues = [
     const [disabled, setDisabled] = useState(false);
 
     const handleClick = () => {
-        let randomDegree = Math.floor(Math.random() * ((355 - 0 + 1) + 0));
+        let randomDegree = Math.floor(Math.random() * (360));
         setText("GOOD LUCK!!");
         let rotationInterval = window.setInterval(() => {
             setOptions(prevState => {
