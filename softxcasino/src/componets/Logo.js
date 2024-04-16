@@ -1,4 +1,4 @@
-import logo from './imgs/logo2.png';
+import logo from '../imgs/logo2.png';
 
 function Logo(){
     return <img src={logo} alt="Logo"/>;

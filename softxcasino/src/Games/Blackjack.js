@@ -1,9 +1,8 @@
-import blackjakc from './imgs/blackjack.png'
-
+import homer from '../imgs/homer1coming.png'
 const BlackJack = () => {
     return (
         <div className="Blackjack">
-            <img className="blackjack-table" src={blackjakc}/>
+            <img className="coming-soon" src={homer} alt='blackjack'/>
         </div>
     );
 }

@@ -11,8 +11,8 @@ const Menu = () => {
             <Link to="/poker" className="link">Poker</Link><br></br>
             <Link to="/blackjack" className="link">Blackjack</Link><br></br>
             <Link to="/slot" className="link">Slot</Link><br></br>
-            <Link to="/coinflip" className="link">Coinflip</Link><br></br>
             <Link to="/plinko" className="link">Plinko</Link><br></br>
+            <Link to="/history" className="link">History</Link><br></br>
         </div>
      );
 }

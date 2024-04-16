@@ -1,9 +1,9 @@
-import Rulet from "./Rulet";
+import Rulet from "./menuImgs/Rulet";
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import Slotimg from "./Slotimg";
+import Slotimg from "./menuImgs/Slotimg";
 import {Link} from "react-router-dom";
-import Pokerimg from "./Pokerimg";
+import Pokerimg from "./menuImgs/Pokerimg";
 const Home = () => {
     const properties = {
         prevArrow: <p></p>,

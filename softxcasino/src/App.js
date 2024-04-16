@@ -1,13 +1,16 @@
 import './App.css';
-import Navbar from './Navbar';
+import Navbar from './componets/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Menu from './Menu';
-import Home from './Home';
-import Roulette from './Roulette';
+import Menu from './componets/Menu';
+import Home from './componets/Home';
+import History from './componets/History';
+import Roulette from './Games/Roulette';
 import Login from "./Login";
 import Register from './Register';
-import Poker from './Poker';
-import BlackJack from './Blackjack';
+import Poker from './Games/Poker';
+import BlackJack from './Games/Blackjack';
+import Plink from './Games/Plinko';
+import Slot from "./Games/Slot"
 function App() {
 
   return (
@@ -33,6 +36,15 @@ function App() {
           </Route>
           <Route path='/blackjack'>
             <BlackJack/>
+          </Route>
+          <Route path='/plinko'>
+            <Plink/>
+          </Route>
+          <Route path='/slot'>
+            <Slot/>
+          </Route>
+          <Route path='/history'>
+            <History/>
           </Route>
         </Switch>
       </div>

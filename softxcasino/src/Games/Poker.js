@@ -1,59 +1,59 @@
 import Table from "./Table";
 import { Flash, FourOfKind, FullHouse, HighCard, Pair, RoyalFlush, StraighFlush, Straight, ThreeOfAKind, TwoPair } from "./Combinations";
-import card1 from "./imgs/cards/PNG-cards-1.3/2_of_clubs.png";
-import card2 from "./imgs/cards/PNG-cards-1.3/2_of_diamonds.png";
-import card3 from "./imgs/cards/PNG-cards-1.3/2_of_hearts.png";
-import card4 from "./imgs/cards/PNG-cards-1.3/2_of_spades.png";
-import card5 from "./imgs/cards/PNG-cards-1.3/3_of_clubs.png";
-import card6 from "./imgs/cards/PNG-cards-1.3/3_of_diamonds.png";
-import card7 from "./imgs/cards/PNG-cards-1.3/3_of_hearts.png";
-import card8 from "./imgs/cards/PNG-cards-1.3/3_of_spades.png";
-import card9 from "./imgs/cards/PNG-cards-1.3/4_of_clubs.png";
-import card10 from "./imgs/cards/PNG-cards-1.3/4_of_diamonds.png";
-import card11 from "./imgs/cards/PNG-cards-1.3/4_of_hearts.png";
-import card12 from "./imgs/cards/PNG-cards-1.3/4_of_spades.png";
-import card13 from "./imgs/cards/PNG-cards-1.3/5_of_clubs.png";
-import card14 from "./imgs/cards/PNG-cards-1.3/5_of_diamonds.png";
-import card15 from "./imgs/cards/PNG-cards-1.3/5_of_hearts.png";
-import card16 from "./imgs/cards/PNG-cards-1.3/5_of_spades.png";
-import card17 from "./imgs/cards/PNG-cards-1.3/6_of_clubs.png";
-import card18 from "./imgs/cards/PNG-cards-1.3/6_of_diamonds.png";
-import card19 from "./imgs/cards/PNG-cards-1.3/6_of_hearts.png";
-import card20 from "./imgs/cards/PNG-cards-1.3/6_of_spades.png";
-import card21 from "./imgs/cards/PNG-cards-1.3/7_of_clubs.png";
-import card22 from "./imgs/cards/PNG-cards-1.3/7_of_diamonds.png";
-import card23 from "./imgs/cards/PNG-cards-1.3/7_of_hearts.png";
-import card24 from "./imgs/cards/PNG-cards-1.3/7_of_spades.png";
-import card25 from "./imgs/cards/PNG-cards-1.3/8_of_clubs.png";
-import card26 from "./imgs/cards/PNG-cards-1.3/8_of_diamonds.png";
-import card27 from "./imgs/cards/PNG-cards-1.3/8_of_hearts.png";
-import card28 from "./imgs/cards/PNG-cards-1.3/8_of_spades.png";
-import card29 from "./imgs/cards/PNG-cards-1.3/9_of_clubs.png";
-import card30 from "./imgs/cards/PNG-cards-1.3/9_of_diamonds.png";
-import card31 from "./imgs/cards/PNG-cards-1.3/9_of_hearts.png";
-import card32 from "./imgs/cards/PNG-cards-1.3/9_of_spades.png";
-import card33 from "./imgs/cards/PNG-cards-1.3/10_of_clubs.png";
-import card34 from "./imgs/cards/PNG-cards-1.3/10_of_diamonds.png";
-import card35 from "./imgs/cards/PNG-cards-1.3/10_of_hearts.png";
-import card36 from "./imgs/cards/PNG-cards-1.3/10_of_spades.png";
-import card37 from "./imgs/cards/PNG-cards-1.3/jack_of_clubs2.png";
-import card38 from "./imgs/cards/PNG-cards-1.3/jack_of_diamonds2.png";
-import card39 from "./imgs/cards/PNG-cards-1.3/jack_of_hearts2.png";
-import card40 from "./imgs/cards/PNG-cards-1.3/jack_of_spades2.png";
-import card41 from "./imgs/cards/PNG-cards-1.3/queen_of_clubs2.png";
-import card42 from "./imgs/cards/PNG-cards-1.3/queen_of_diamonds2.png";
-import card43 from "./imgs/cards/PNG-cards-1.3/queen_of_hearts2.png";
-import card44 from "./imgs/cards/PNG-cards-1.3/queen_of_spades2.png";
-import card45 from "./imgs/cards/PNG-cards-1.3/king_of_clubs2.png";
-import card46 from "./imgs/cards/PNG-cards-1.3/king_of_diamonds2.png";
-import card47 from "./imgs/cards/PNG-cards-1.3/king_of_hearts2.png";
-import card48 from "./imgs/cards/PNG-cards-1.3/king_of_spades2.png";
-import card49 from "./imgs/cards/PNG-cards-1.3/ace_of_clubs.png";
-import card50 from "./imgs/cards/PNG-cards-1.3/ace_of_diamonds.png";
-import card51 from "./imgs/cards/PNG-cards-1.3/ace_of_hearts.png";
-import card52 from "./imgs/cards/PNG-cards-1.3/ace_of_spades.png";
-import backcard from "./imgs/cards/card-back-Blue.png";
-import homer2 from "./imgs/homer6.png";
+import card1 from "../imgs/cards/PNG-cards-1.3/2_of_clubs.png";
+import card2 from "../imgs/cards/PNG-cards-1.3/2_of_diamonds.png";
+import card3 from "../imgs/cards/PNG-cards-1.3/2_of_hearts.png";
+import card4 from "../imgs/cards/PNG-cards-1.3/2_of_spades.png";
+import card5 from "../imgs/cards/PNG-cards-1.3/3_of_clubs.png";
+import card6 from "../imgs/cards/PNG-cards-1.3/3_of_diamonds.png";
+import card7 from "../imgs/cards/PNG-cards-1.3/3_of_hearts.png";
+import card8 from "../imgs/cards/PNG-cards-1.3/3_of_spades.png";
+import card9 from "../imgs/cards/PNG-cards-1.3/4_of_clubs.png";
+import card10 from "../imgs/cards/PNG-cards-1.3/4_of_diamonds.png";
+import card11 from "../imgs/cards/PNG-cards-1.3/4_of_hearts.png";
+import card12 from "../imgs/cards/PNG-cards-1.3/4_of_spades.png";
+import card13 from "../imgs/cards/PNG-cards-1.3/5_of_clubs.png";
+import card14 from "../imgs/cards/PNG-cards-1.3/5_of_diamonds.png";
+import card15 from "../imgs/cards/PNG-cards-1.3/5_of_hearts.png";
+import card16 from "../imgs/cards/PNG-cards-1.3/5_of_spades.png";
+import card17 from "../imgs/cards/PNG-cards-1.3/6_of_clubs.png";
+import card18 from "../imgs/cards/PNG-cards-1.3/6_of_diamonds.png";
+import card19 from "../imgs/cards/PNG-cards-1.3/6_of_hearts.png";
+import card20 from "../imgs/cards/PNG-cards-1.3/6_of_spades.png";
+import card21 from "../imgs/cards/PNG-cards-1.3/7_of_clubs.png";
+import card22 from "../imgs/cards/PNG-cards-1.3/7_of_diamonds.png";
+import card23 from "../imgs/cards/PNG-cards-1.3/7_of_hearts.png";
+import card24 from "../imgs/cards/PNG-cards-1.3/7_of_spades.png";
+import card25 from "../imgs/cards/PNG-cards-1.3/8_of_clubs.png";
+import card26 from "../imgs/cards/PNG-cards-1.3/8_of_diamonds.png";
+import card27 from "../imgs/cards/PNG-cards-1.3/8_of_hearts.png";
+import card28 from "../imgs/cards/PNG-cards-1.3/8_of_spades.png";
+import card29 from "../imgs/cards/PNG-cards-1.3/9_of_clubs.png";
+import card30 from "../imgs/cards/PNG-cards-1.3/9_of_diamonds.png";
+import card31 from "../imgs/cards/PNG-cards-1.3/9_of_hearts.png";
+import card32 from "../imgs/cards/PNG-cards-1.3/9_of_spades.png";
+import card33 from "../imgs/cards/PNG-cards-1.3/10_of_clubs.png";
+import card34 from "../imgs/cards/PNG-cards-1.3/10_of_diamonds.png";
+import card35 from "../imgs/cards/PNG-cards-1.3/10_of_hearts.png";
+import card36 from "../imgs/cards/PNG-cards-1.3/10_of_spades.png";
+import card37 from "../imgs/cards/PNG-cards-1.3/jack_of_clubs2.png";
+import card38 from "../imgs/cards/PNG-cards-1.3/jack_of_diamonds2.png";
+import card39 from "../imgs/cards/PNG-cards-1.3/jack_of_hearts2.png";
+import card40 from "../imgs/cards/PNG-cards-1.3/jack_of_spades2.png";
+import card41 from "../imgs/cards/PNG-cards-1.3/queen_of_clubs2.png";
+import card42 from "../imgs/cards/PNG-cards-1.3/queen_of_diamonds2.png";
+import card43 from "../imgs/cards/PNG-cards-1.3/queen_of_hearts2.png";
+import card44 from "../imgs/cards/PNG-cards-1.3/queen_of_spades2.png";
+import card45 from "../imgs/cards/PNG-cards-1.3/king_of_clubs2.png";
+import card46 from "../imgs/cards/PNG-cards-1.3/king_of_diamonds2.png";
+import card47 from "../imgs/cards/PNG-cards-1.3/king_of_hearts2.png";
+import card48 from "../imgs/cards/PNG-cards-1.3/king_of_spades2.png";
+import card49 from "../imgs/cards/PNG-cards-1.3/ace_of_clubs.png";
+import card50 from "../imgs/cards/PNG-cards-1.3/ace_of_diamonds.png";
+import card51 from "../imgs/cards/PNG-cards-1.3/ace_of_hearts.png";
+import card52 from "../imgs/cards/PNG-cards-1.3/ace_of_spades.png";
+import backcard from "../imgs/cards/card-back-Blue.png";
+import homer2 from "../imgs/homer6.png";
 import { useState } from "react";
 const Poker = () => {
 
@@ -205,120 +205,172 @@ const Poker = () => {
         const tablecard5= {number: cards[tableCards[4]].number,sign: cards[tableCards[4]].sign};
         if (RoyalFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have wan bcs fo royal flush");
+            sendPost();
        }
        else if (RoyalFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Player have won because of royal flush");
+        sendPost();
        }
        else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
             if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of stronger straight Flash");
+            sendPost();
             }
-            else 
+            else {
             setHomerTx("Player have won becuase of stronger straight Flash");
+            sendPost();
+            }
        }
        else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of straight Flash");
+            sendPost();
        }
        else if (StraighFlush(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>StraighFlush(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Player have won because of straight Flash");
+            sendPost();
        }
        else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
         if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Bot have won because of a strogner four of a kind");
+        sendPost();
         }
         else 
         setHomerTx("Player have won becuase of stronger four of a kind");
+        sendPost();
         }
        else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Bot have won because of strogner four");
+        sendPost();
        }
        else if (FourOfKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<FourOfKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Player have won because of strogner four");
+        sendPost();
         }
         else if (FullHouse(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && FullHouse(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
             if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of a strogner full house");
+            sendPost();
             }
             else 
             setHomerTx("Player have won becuase of stronger full house");
+            sendPost();
             }
         else if (FullHouse(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>FullHouse(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Bot have won because Full House");
+        sendPost();
         }
         else if (FullHouse(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<FullHouse(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Player have won because Full House");
+        sendPost();
         }
         else if (Flash(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && Flash(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
             if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of a strogner flash");
+            sendPost();
             }
             else 
             setHomerTx("Player have won becuase of stronger flash");
+            sendPost();
             }
         else if (Flash(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Bot have won because of Flash")
+        sendPost();
         }
         else if (Flash(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Player have won because of Flash")
+        sendPost();
         }
         else if (Straight(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && Straight(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
             if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of a strogner straight");
+            sendPost();
             }
             else 
             setHomerTx("Player have won becuase of stronger straight");
+            sendPost();
             }
         else if (Straight(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>Straight(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Bot have won because of Straight")
+        sendPost();
         }
         else if (Straight(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<Straight(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Player have won because of Straight")
+        sendPost();
         }
         else if (ThreeOfAKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && ThreeOfAKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
             if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of a strogner ThreeOfAKind");
+            sendPost();
             }
             else 
             setHomerTx("Player have won becuase of stronger ThreeOfAKind");
+            sendPost();
             }
         else if (ThreeOfAKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>ThreeOfAKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Bot have won because of three same cards");
+        sendPost();
         }
         else if (ThreeOfAKind(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<ThreeOfAKind(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Bot have won because of three same cards");
+        sendPost();
         }
         else if (TwoPair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && TwoPair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
             if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of a strogner TwoPair");
+            sendPost();
             }
             else 
             setHomerTx("Player have won becuase of stronger TwoPair");
+            sendPost();
             }
         else if (TwoPair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>TwoPair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
         setHomerTx("Bot have won because of Two pair");
+        sendPost();
         }
         else if (TwoPair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<TwoPair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
-            setHomerTx("Player have won becasue of Two pair")
+            setHomerTx("Player have won becasue of Two pair");
+            sendPost();
         }
         else if (Pair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0 && Pair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>0){
             if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
                 setHomerTx("Bot have won because of a strogner Pair");
+                sendPost();
             }
             else 
             setHomerTx("Player have won becuase of stronger Pair");
+            sendPost();
             }
         else if (Pair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>Pair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of a pair");
+            sendPost();
             }
         else if (Pair(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<Pair(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Player have won becasue of a pair")
+            sendPost();
             }
         else if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)>HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
             setHomerTx("Bot have won because of a higher card");
+            sendPost();
                 }
         else if (HighCard(botcard1,botcard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)<HighCard(playercard1,playercard2,tablecard1,tablecard2,tablecard3,tablecard4,tablecard5)){
                 setHomerTx("Player have won becasue of a higher card")
+                sendPost();
                 }
+    }
+    const sendPost = async ()=>{
+        console.log("usao");
+        const history = {title: "Poker",result:homerTx};
+        const response = await fetch('/games/history',{
+            method:'POST',
+            body: JSON.stringify(history),
+            headers:{
+                'Content-Type' : 'application/json'
+            }
+        })
+        const json = await response.json()
+        if(response.ok){
+            console.log('history added', json);
+        }
     }
     //useEffect(radnomCards,[]);
     const [homerTx, setHomerTx]=useState("      Press START to START making money")
