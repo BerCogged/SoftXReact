@@ -309,6 +309,24 @@ body{
     right: -1%;
     left: 96%;
   }
+  .sve{
+    position: absolute;
+    z-index: 10000;
+    text-align: center;
+    left:500px;
+    top: 0px;
+  }
+  .history{
+    text-align: right;
+    bottom: -50px;
+    max-height: 300px;
+  }
+  .homer-tekst2{
+    z-index: 1000;
+    position: absolute;
+    right: 700px;
+    top: 300px;
+  }
 }
 .Blackjack{
   text-align: center;
@@ -317,6 +335,7 @@ body{
   max-width: 50%;
   max-height: 50%;
 }
+
 .history{
   text-align: right;
   bottom: 0px;
@@ -324,9 +343,21 @@ body{
 .homer-tekst2{
   z-index: 1000;
   position: absolute;
-  right: 350px;
+  right: 250px;
   top: 300px;
 }
 .history-details{
+  border: 1px solid #ccc;
   text-align: center;
+  left: 50px;
+}
+.sve{
+  margin-top: 100px;
+  border-radius: 5px;
+  border-width: 5px;
+  position: absolute;
+  z-index: 10000;
+  text-align: center;
+  left:450px;
+  top: 0px;
 }

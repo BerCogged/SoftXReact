@@ -4,7 +4,7 @@ const HistoryDetails = ({history}) => {
         <div className="history-details">
         <h4>{history.title}</h4>
         <p><strong>Result: </strong>{history.result}</p>
-        <p>{history.createdAt}</p>
+        <p>{formatDistanceToNow(new Date(history.createdAt),{addSuffix: true})}</p>
     </div>
     );
 }

@@ -14,10 +14,10 @@ app.use((req,res,next)=>{
 
 app.use('/games/history',router);
 
-mongoose.connect(process.env.DB_URL)
+mongoose.connect("mongodb+srv://ADMIN:gokunaruto7@cluster0.66f2jbx.mongodb.net/History?retryWrites=true&w=majority&appName=Cluster0")
     .then(()=>{
-        app.listen(process.env.PORT, ()=>{
-            console.log('listening on port',process.env.PORT);
+        app.listen(4000, ()=>{
+            console.log('listening on port 4000');
         })
     })
     .catch((err)=>{
