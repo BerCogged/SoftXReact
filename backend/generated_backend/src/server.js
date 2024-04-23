@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const router = require('./routes/router');
-
+const userRoutes = require('./routes/user');
 const app = express();
 
 app.use(express.json());
@@ -13,6 +13,8 @@ app.use((req,res,next)=>{
 })
 
 app.use('/games/history',router);
+app.use('/user',userRoutes);
+
 
 mongoose.connect("mongodb+srv://ADMIN:gokunaruto7@cluster0.66f2jbx.mongodb.net/History?retryWrites=true&w=majority&appName=Cluster0")
     .then(()=>{

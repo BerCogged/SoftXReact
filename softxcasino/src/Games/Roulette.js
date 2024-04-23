@@ -126,7 +126,6 @@ const rotatitonValues = [
                     resultValue = 101;
                     console.log("NIGGGERS");
                     return {rotation:newRotation};
-
                 }
                 if (resultValue===0){
                     resultValue=101;

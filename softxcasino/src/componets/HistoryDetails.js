@@ -1,5 +1,6 @@
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 const HistoryDetails = ({history}) => {
+    console.log(history)
     return (  
         <div className="history-details">
         <h4>{history.title}</h4>

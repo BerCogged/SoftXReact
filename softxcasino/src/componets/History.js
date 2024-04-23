@@ -1,22 +1,22 @@
-import { useState } from "react";
 import homer2 from "../imgs/homer6.png";
 import HistoryDetails from "./HistoryDetails";
 import { useEffect } from "react";
+import { useHistoryContext } from "../hooks/useHistoryContext";
 const History = () => {
 
-    const [history,setHistory] = useState('');
+    const {history, dispatch} = useHistoryContext()
     useEffect(() => {
         const fetchHistory = async () => {
           const response = await fetch('/games/history')
           const json = await response.json()
             if (response.ok){
-                setHistory(json);
+                dispatch({type:'SET_HISTORY',payload:json});
                 console.log("History: ", history);
             }
             console.log(json);
         }
         fetchHistory();
-      }, [])
+      }, [dispatch])
 
     return ( 
     <div className="istorija">

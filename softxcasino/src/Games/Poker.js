@@ -55,6 +55,8 @@ import card52 from "../imgs/cards/PNG-cards-1.3/ace_of_spades.png";
 import backcard from "../imgs/cards/card-back-Blue.png";
 import homer2 from "../imgs/homer6.png";
 import { useState } from "react";
+import { useHistoryContext } from "../hooks/useHistoryContext";
+
 const Poker = () => {
 
 
@@ -115,7 +117,7 @@ const Poker = () => {
 
     const [transf, setTransf] = useState("rotateY(180deg)");
     const [text,setText]=useState("Show Cards");
-
+    const [homerTx, setHomerTx]=useState("      Press START to START making money")
     const showcards = ()=>{
             if (text==="Hide Cards"){
                 setText("Show Cards");
@@ -357,8 +359,9 @@ const Poker = () => {
                 sendPost();
                 }
     }
+    const {dispatch} = useHistoryContext();
+
     const sendPost = async ()=>{
-        console.log("usao");
         const history = {title: "Poker",result:homerTx};
         const response = await fetch('/games/history',{
             method:'POST',
@@ -370,10 +373,11 @@ const Poker = () => {
         const json = await response.json()
         if(response.ok){
             console.log('history added', json);
+            dispatch({type:'CREATE_HISTORY', payload:json})
         }
     }
     //useEffect(radnomCards,[]);
-    const [homerTx, setHomerTx]=useState("      Press START to START making money")
+    
     return ( 
         <div className="poker">
                 <div className="slika">
