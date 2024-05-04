@@ -2,12 +2,17 @@ import homer2 from "../imgs/homer6.png";
 import HistoryDetails from "./HistoryDetails";
 import { useEffect } from "react";
 import { useHistoryContext } from "../hooks/useHistoryContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 const History = () => {
-
+    const {user}= useAuthContext()
     const {history, dispatch} = useHistoryContext()
     useEffect(() => {
         const fetchHistory = async () => {
-          const response = await fetch('/games/history')
+          const response = await fetch('/games/history',{
+            headers:{
+                'Authorization': `Bearer ${user.token}`
+            }
+          })
           const json = await response.json()
             if (response.ok){
                 dispatch({type:'SET_HISTORY',payload:json});
@@ -15,7 +20,9 @@ const History = () => {
             }
             console.log(json);
         }
+        if (user){
         fetchHistory();
+        }
       }, [dispatch])
 
     return ( 

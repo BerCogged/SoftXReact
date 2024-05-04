@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { HistoryContextProvider } from './context/HistoryContext';
+import { AuthContextProvider } from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HistoryContextProvider>
-    <App />
-    </HistoryContextProvider>
+    <AuthContextProvider>
+      <HistoryContextProvider>
+        <App />
+      </HistoryContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );

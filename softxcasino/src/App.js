@@ -10,7 +10,7 @@ import Register from './Register';
 import Poker from './Games/Poker';
 import BlackJack from './Games/Blackjack';
 import Plink from './Games/Plinko';
-import Slot from "./Games/Slot"
+import Slot from "./Games/Slot";
 function App() {
 
   return (
@@ -29,7 +29,7 @@ function App() {
             <Poker/>
           </Route>
           <Route path="/login">
-            <Login/>
+              <Login/>
           </Route>
           <Route path='/register'>
             <Register/>

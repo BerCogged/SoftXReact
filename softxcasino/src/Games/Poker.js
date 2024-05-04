@@ -56,7 +56,7 @@ import backcard from "../imgs/cards/card-back-Blue.png";
 import homer2 from "../imgs/homer6.png";
 import { useState } from "react";
 import { useHistoryContext } from "../hooks/useHistoryContext";
-
+import { useAuthContext } from "../hooks/useAuthContext";
 const Poker = () => {
 
 
@@ -360,14 +360,18 @@ const Poker = () => {
                 }
     }
     const {dispatch} = useHistoryContext();
-
+    const {user} = useAuthContext();
     const sendPost = async ()=>{
+        if (!user){
+            return
+        }
         const history = {title: "Poker",result:homerTx};
         const response = await fetch('/games/history',{
             method:'POST',
             body: JSON.stringify(history),
             headers:{
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${user.token}`,
             }
         })
         const json = await response.json()
