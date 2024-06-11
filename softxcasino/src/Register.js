@@ -14,7 +14,10 @@ const Register = () => {
     const handleSubmit = async (e)=>{
         e.preventDefault()
         await signup(email,username,password);
-        history.push('/');
+        if (!error){
+            history.push('/');
+        }
+
     }
     useEffect(()=>{
         if (user){

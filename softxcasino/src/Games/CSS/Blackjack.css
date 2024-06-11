@@ -1,0 +1,105 @@
+.Blackjack{
+    text-align: center;
+    display:block;
+}
+.blackjack-table{
+    margin-top: 110px;
+    width: 900px;
+    height: 1300spx;
+    margin-left: 60px;
+}
+.dealerCard1{
+  display: block;
+  rotate: 0deg;
+  z-index: 1;
+  position: absolute;
+  left: 51.6%;
+  top: 36.6%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  height: 10%;
+  cursor: pointer;
+}
+.dealerCard2{
+  display: block;
+  rotate: 0deg;
+  z-index: 1;
+  position: absolute;
+  left: 54%;
+  top: 36.6%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  height: 10%;
+  cursor: pointer;
+}
+  .bcard2 {
+    display: none;
+    rotate: 30deg;
+    z-index: 1;
+    position: absolute;
+    left: 41.9%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    width: 10%;
+    height: 10%;
+    cursor: pointer;
+  }
+  .bcard3 {
+    z-index: 1;
+    position: absolute;
+    left: 51.6%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    width: 10%;
+    height: 10%;
+    cursor: pointer;
+  }
+  .bcard4 {
+    display: none;
+    rotate: -30deg;
+    z-index: 1;
+    position: absolute;
+    left: 60.4%;
+    top: 59%;
+    transform: translate(-50%, -50%);
+    width: 10%;
+    height: 10%;
+    cursor: pointer;
+  }
+  .bcard-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  .bcard-front, .bcard-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility:hidden;
+    backface-visibility: hidden;
+  }
+  .bcard-img{
+    height: 100%;
+  }
+  .bcard-back{
+    transform: rotateY(180deg);
+  }
+  .split{
+    margin-left: 60px;
+    border-radius: 8px;
+    background-color: #c66e16;
+  }
+  .split2{
+    margin-left: 10px;
+    border-radius: 8px;
+    background-color: #c66e16;
+  }
+.zbir{
+  text-align: center;
+  margin-top: 3px;
+}
+.dugmad{
+  margin-top: 10px;
+}
