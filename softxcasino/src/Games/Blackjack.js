@@ -54,8 +54,11 @@ import card51 from "../imgs/cards/PNG-cards-1.3/ace_of_hearts.png";
 import card52 from "../imgs/cards/PNG-cards-1.3/ace_of_spades.png";
 import backcard from "../imgs/cards/card-back-Blue.png";
 import Card from './Card';
-import { useState } from 'react';
+import DelaerCard from './DealerCard';
+import PlayerCard from './PlayerCard';
+import { useEffect, useState } from 'react';
 import { useCardContext } from '../hooks/useCardContext';
+import { useDealerCardContext } from '../hooks/useDealerCardContext';
 const BlackJack = () => {
 
 
@@ -113,23 +116,113 @@ const BlackJack = () => {
         { id: 51, number: 'Ace', sign: "hearts", path: card51 },
         { id: 52, number: 'Ace', sign: "spades", path: card52 }
     ];
-    const transx = "rotateY(180deg)"
-    const [text, setText] = useState("Show Cards");
+    const [zb,setZB] = useState(0);
+    const [zb2,setZB2]=useState(0);
+    const [transx,setTransX] = useState("rotateY(180deg)")
     const [transf, setTransf] = useState("rotateY(180deg)");
     const [split,setSplit] = useState("none");
     const [prva,setPrva] = useState("block");
-    const [game,setGame] = useState(false);
     const [disabled,setDisabled] = useState(false);
     const [dugmad, setDugmad] = useState("none");
     const [hand,setHand] = useState();
     const [dealer1,setDealer1] = useState();
     const [dealer2,setDealer2] = useState();
     const [x,setX] = useState();
-    const {dispatch} = useCardContext();
-    const bcards = 0;
+    const {bcards,dispatch} = useCardContext();
+    const {dcards,dispatch2} = useDealerCardContext();
+    const [standPressed,setSTANDPressed] = useState(false);
+    const [hitPressed, setHITPressed] = useState(false);
 
     const hit = ()=>{
-        dispatch({type:"SHOW", payload:[10]})
+        setHITPressed(true);
+        let y = Math.floor(Math.random()*52);
+        dispatch({type:"SHOW",payload:[y]})
+        console.log(bcards);
+        console.log(x, y);
+        if (cards[y].number==="Ace"){
+            setX(x+11);
+        }
+        else if (cards[y].number>=10){
+            setX(x+10);
+        }
+        else {
+            setX(x+cards[y].number);
+        }
+        
+    }
+    useEffect(()=>{
+        if (hitPressed){
+            if (x>21){
+                alert("You lost");
+            }
+        }
+    })
+    useEffect(()=>{
+        if (standPressed){
+            if (zb===21 && x===21){
+                alert("DRAW");
+            }
+            else if (zb>21){
+                alert("YOU WON!!!");
+            }
+            else if (x>21){
+                alert("You lost");
+            }
+            else if (zb<21 && x>21){
+                alert("You lost!!!");
+            }
+            else if (zb<21 && zb>x){
+                alert("YOU LOST!!!");
+            }
+            else if (zb<x && zb<21){
+                let y = Math.floor(Math.random()*52);
+                dispatch2({type:"SHOW2",payload:[y]})
+                if (cards[y].number==="Ace"){
+                    setZB(zb+11+zb2);
+                }
+                else if (cards[y].number>=10){
+                    setZB(zb+10+zb2);
+                }
+                else {
+                    setZB(zb+cards[y].number+zb2);
+                }
+            }
+        }
+
+    },[zb,x])
+    const stand = ()=>{
+        setHITPressed(false);
+        setSTANDPressed(true);
+        setTransX("rotateY(0deg)");
+        if (zb==="1/11"){
+            let broj1 =zb2+11;
+            let broj2 =zb2+1;
+            setZB(broj1+"/"+broj2); 
+        }
+        else if (zb2==="1/11"){
+            let broj1 =zb+11;
+            let broj2 =zb+1;
+            setZB(broj1+"/"+broj2);
+        }
+        else {
+            setZB(zb+zb2);
+        }
+        if (zb+zb2===21 && x===21){
+            alert("DRAW");
+        }
+        else if (zb+zb2<21 && zb+zb2<x){
+            let y = Math.floor(Math.random()*52);
+            dispatch2({type:"SHOW2",payload:[y]})
+            if (cards[y].number==="Ace"){
+                setZB(zb+11+zb2);
+            }
+            else if (cards[y].number>=10){
+                setZB(zb+10+zb2);
+            }
+            else {
+                setZB(zb+cards[y].number+zb2);
+            }
+        }
     }
 
 
@@ -145,24 +238,44 @@ const BlackJack = () => {
         setHand(cards[x1].path);
         if (cards[x1].number==="Ace"){
             setX(1+"/"+11);
-            dispatch({type:"HIT",payload:(1+"/"+11)});
+            dispatch({type:"HIT",payload:[x1]});
         }
         else if (cards[x1].number>10){
             setX(10)
-            dispatch({type:"HIT",payload:10});
+            dispatch({type:"HIT",payload:[x1]});
         }
         else {
-            dispatch({type:"HIT",payload:cards[x1].number});
+            dispatch({type:"HIT",payload:[x1]});
             setX(cards[x1].number);
-        }
-        
+        } 
         setDealer1(cards[x2].path);
         setDealer2(cards[x3].path);
+        
+        if (cards[x3].number==="Ace"){
+            setZB(1+"/"+11);
+        }
+        else if (cards[x3].number>10){
+            setZB(10)
+        }
+        else {
+            setZB(cards[x3].number);
+        }
+
+        if (cards[x2].number==="Ace"){
+            setZB2(1+"/"+11);
+        }
+        else if (cards[x2].number>10){
+            setZB2(10)
+        }
+        else {
+            setZB2(cards[x2].number);
+        }  
     }
 
-    const start =()=>{     
+    const start =()=>{
+        setSTANDPressed(false);
+        setTransX("rotateY(180deg)");     
         setTransf("rotateY(0deg)")
-        setGame(true);
         setDisabled(false);
         setDugmad("block");
         randomCards();
@@ -171,7 +284,7 @@ const BlackJack = () => {
     return (
         <div className="Blackjack">
             <img className="blackjack-table" src={table} alt='blackjack'/>
-
+           
             <div className="bcard2" style={{display: split}}>
                 <div className="bcard-inner" style={{transform : true}} >
                      <div className="bcard-front">
@@ -182,47 +295,27 @@ const BlackJack = () => {
                      </div>
                 </div>
             </div>  
-
-            <div className="bcard3" style={{display : prva}}>
-                <div className="bcard-inner" style={{transform : transf}} >
-                     <div className="bcard-front">
-                          <img src={hand} alt="poker" className="bcard-img"/>
-                     </div>
-                     <div className="bcard-back">
-                         <img src={backcard} alt="" className="bcard-img"/>
-                     </div>           
-                </div>
+            
+            {bcards && bcards.map((cardn, index) =>(
+                    <PlayerCard
+                    index={index}
+                    key={index}
+                    prva={prva}
+                    transf={transf}
+                    hand={cards[cardn].path}
+                    backcard={backcard}
+                    />
+            ))}
+             
                 <div className="dugmad" style={{display: dugmad}}>
                 <p className='zbir'><b>{x}</b></p>
                 <button className='split2' onClick={hit}>HIT</button>
-                <button className='split2'>STAND</button>
+                <button className='split2' onClick={stand}>STAND</button>
                 </div>
-            </div>
+        
             
             <div className="bcard4" style={{display: split}}>
                 <div className="bcard-inner" style={{transform : true}} >
-                     <div className="bcard-front">
-                        <img src={dealer1} alt="poker" className="bcard-img"/>
-                     </div>
-                     <div className="bcard-back">
-                        <img src={backcard} alt="" className="bcard-img"/>
-                     </div>
-                </div>
-            </div>
-
-            {bcards && bcards.map(bc=>(
-                <Card
-                key={bc} 
-                prva={prva}
-                transf={transf}
-                backcard={backcard}
-                dealer2={dealer2}
-                />
-            ))}
-
-
-            <div className="dealerCard2" style={{display:prva}}>
-                <div className="bcard-inner" style={{transform : transx}} >
                      <div className="bcard-front">
                         <img src={card7} alt="poker" className="bcard-img"/>
                      </div>
@@ -231,24 +324,37 @@ const BlackJack = () => {
                      </div>
                 </div>
             </div>
+            
+            <Card
+            prva={prva}
+            transf={transf}
+            backcard={backcard}
+            dealer2={dealer2}/>
+
+            <div className="dealerCard2" style={{display:prva}}>
+            <div className="zbirdiler"><p>{zb}</p></div>
+                <div className="bcard-inner" style={{transform : transx}} >
+                     <div className="bcard-front">
+                        <img src={dealer1} alt="poker" className="bcard-img"/>
+                     </div>
+                     <div className="bcard-back">
+                        <img src={backcard} alt="" className="bcard-img"/>
+                     </div>
+                </div>
+            </div>
+            {dcards && dcards.map((cardd,index)=>(
+                    <DelaerCard
+                    index={index}
+                    prva={prva}
+                    dealer1={cards[cardd].path}
+                    backcard={backcard}
+                    transx={transx}
+                    key={index}
+                    />
+            ))}
+
             <br></br>
             <button className='split' onClick={start} disabled={disabled}>START</button>
-            {/*
-            <button className='split' onClick={()=>{
-                setSplit("block");
-                setPrva("none");
-            }}>SPLIT</button><br></br>
-            <button className='split' onClick={()=>{
-                if (text==="Hide Cards"){
-                    setText("Show Cards");
-                    setTransf("rotateY(180deg)")
-                }
-                else {
-                    setText("Hide Cards");
-                    setTransf("rotateY(0deg)")
-                }
-            }}>{text}</button>
-        */}
         </div>
     );
 }

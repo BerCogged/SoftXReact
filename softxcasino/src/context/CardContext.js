@@ -10,7 +10,7 @@ export const cardReducer= (state,action)=>{
             }
         case "SHOW":
             return{
-                bcards:[action.payload,...state.bcards]
+                bcards:[...state.bcards,action.payload]
             }
         default:
             return state;
@@ -19,7 +19,7 @@ export const cardReducer= (state,action)=>{
 
 export const CardContextProvider=({children})=>{
     const [state,dispatch] = useReducer(cardReducer, {
-        bcards:null
+        bcards:[]
     })
     return (
         <CardContext.Provider value={{...state,dispatch}}>

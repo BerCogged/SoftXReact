@@ -26,7 +26,7 @@
   z-index: 1;
   position: absolute;
   left: 54%;
-  top: 36.6%;
+  top: 30.5%;
   transform: translate(-50%, -50%);
   width: 10%;
   height: 10%;
@@ -101,5 +101,26 @@
   margin-top: 3px;
 }
 .dugmad{
-  margin-top: 10px;
+  margin-top: -70px;
+  margin-left: 55px;
+  text-align: center;
+}
+.zbirdiler{
+  border-radius: 8px;
+  background-color: white;
+  margin-right: 100px;
+  margin-top:25px;
+  margin-bottom: 0px;
+}
+.dealerCard22{
+  display: block;
+  rotate: 0deg;
+  z-index: 1;
+  position: absolute;
+  left: 54%;
+  top: 30.5%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  height: 10%;
+  cursor: pointer;
 }

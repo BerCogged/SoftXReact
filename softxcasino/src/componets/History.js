@@ -23,7 +23,7 @@ const History = () => {
         if (user){
         fetchHistory();
         }
-      }, [dispatch])
+      }, [dispatch,history,user])
 
     return ( 
     <div className="istorija">

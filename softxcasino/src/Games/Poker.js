@@ -377,7 +377,7 @@ const Poker = () => {
         const json = await response.json()
         if(response.ok){
             console.log('history added', json);
-            dispatch({type:'CREATE_HISTORY', payload:json})
+            dispatch({type:'CREATE_HISTORY', payload:[json]})
         }
     }
     //useEffect(radnomCards,[]);

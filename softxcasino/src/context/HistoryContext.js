@@ -20,7 +20,7 @@ export const historyReducer = (state,action)=>{
 export const HistoryContextProvider = ({children})=>{
 
     const [state,dispatch] = useReducer(historyReducer, {
-        history: null
+        history: []
     })
 
 
