@@ -189,7 +189,7 @@ const BlackJack = () => {
             }
         }
 
-    },[zb,x])
+    },[zb,x,dispatch2,standPressed,zb2])
     const stand = ()=>{
         setHITPressed(false);
         setSTANDPressed(true);
